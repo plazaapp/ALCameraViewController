@@ -46,7 +46,7 @@ public class ConfirmViewController: UIViewController {
                        y: scrollViewSize.height / 2.0)
     }
 
-    private let cropOverlayDefaultPadding: CGFloat = 20
+    private let cropOverlayDefaultPadding: CGFloat = 5
     private var cropOverlayDefaultFrame: CGRect {
         let buttonsViewGap: CGFloat = 20 * 2 + 64
         let centeredViewBounds: CGRect
@@ -63,13 +63,14 @@ public class ConfirmViewController: UIViewController {
         }
         
         let cropOverlayWidth = min(centeredViewBounds.size.width, centeredViewBounds.size.height) - 2 * cropOverlayDefaultPadding
+        let cropOverlayHeight = cropOverlayWidth * 132 / 375
         let cropOverlayX = centeredViewBounds.size.width / 2 - cropOverlayWidth / 2
-        let cropOverlayY = centeredViewBounds.size.height / 2 - cropOverlayWidth / 2
+        let cropOverlayY = centeredViewBounds.size.height / 2 - cropOverlayHeight / 2
 
         return CGRect(x: cropOverlayX,
                       y: cropOverlayY,
                       width: cropOverlayWidth,
-                      height: cropOverlayWidth)
+                      height: cropOverlayHeight)
     }
 	
 	public var onComplete: CameraViewCompletion?
